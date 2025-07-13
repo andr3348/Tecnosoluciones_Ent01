@@ -17,7 +17,7 @@ class UsuarioModel {
             $stmt->execute([
                 ':nom' => $usuario->getNombre(),
                 ':correo' => $usuario->getCorreo(),
-                ':pasw' => $usuario->getPassword(),
+                ':passw' => $usuario->getPassword(),
                 ':id_rol' => $usuario->getIdRol()
             ]);
         } catch (PDOException $e) {
@@ -27,7 +27,7 @@ class UsuarioModel {
 
     function getAll() {
         try {
-            $sql = 'SELECT (id_usuario,nombre,correo,passw,id_rol) FROM usuario';
+            $sql = 'SELECT id_usuario,nombre,correo,passw,id_rol FROM usuario';
             $stmt = $this->pdo->prepare($sql);
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
@@ -62,6 +62,23 @@ class UsuarioModel {
             ]);
         } catch (PDOException $e) {
             throw new Exception('Error al eliminar el usuario: '.$e);
+        }
+    }
+
+    function getByEmailPass($correo, $password) {
+        try {
+            $sql = 'SELECT id_usuario,nombre,correo,passw,id_rol
+                    FROM usuario WHERE correo = :correo AND passw = :passw';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([
+                ':correo' => $correo,
+                ':passw' => $password
+            ]);
+            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($usuario) return $usuario;
+            return null;
+        } catch (PDOException $e) {
+            throw new Exception('Error al obtener el usuario por correo y contraseña: '.$e);
         }
     }
 }

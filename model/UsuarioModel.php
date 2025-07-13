@@ -1,6 +1,6 @@
 <?php
-require_once '../config/DB.php';
-require_once '../model/Usuario.php';
+require_once 'config/DB.php';
+require_once 'model/Usuario.php';
 class UsuarioModel {
     private $pdo;
 

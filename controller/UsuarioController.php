@@ -1,14 +1,14 @@
 <?php
-require_once '../model/UsuarioModel.php';
-require_once '../model/Usuario.php';
+require_once 'model/UsuarioModel.php';
+require_once 'model/Usuario.php';
 class UsuarioController {
 
-    function cargar() {
+    public function cargar() {
         $model = new UsuarioModel();
         return $model->getAll();
     }
 
-    function registrar() {
+    public function registrar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (empty($_POST['nombre']) ||
                 empty($_POST['correo']) ||
@@ -34,7 +34,7 @@ class UsuarioController {
         }
     }
 
-    function iniciarSesion() {
+    public function iniciarSesion() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $correo = $_POST['correo'];
             $password = $_POST['password'];
@@ -77,7 +77,7 @@ class UsuarioController {
         }
     }
 
-    function cerrarSesion() {
+    public function cerrarSesion() {
         $_SESSION = [];
         session_destroy();
         header('Location: ?view=home');

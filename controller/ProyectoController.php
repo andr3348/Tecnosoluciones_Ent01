@@ -22,7 +22,7 @@ class ProyectoController {
 
             $proyecto = new Proyecto();
             $proyecto->setTitulo($_POST['titulo']);
-            $proyecto->setDescripcion($_POST['descripcion']);
+            $proyecto->setDescripcion($_POST['descripcion'] ?: 'NO HAY DESCRIPCIÓN');
 
             $proyectoModel = new ProyectoModel();
             $nuevoProyecto = $proyectoModel->save($proyecto);
@@ -32,6 +32,7 @@ class ProyectoController {
             }
 
             $usuarioProyectoModel = new UsuarioProyectoModel();
+            $usuarioProyectoModel->save($_POST['encargado'], $nuevoProyecto['id_proyecto']);
             $usuarioProyectoModel->save($_SESSION['id_usuario'], $nuevoProyecto['id_proyecto']);
 
             header('Location: ?view=crear_proyecto&status=success');

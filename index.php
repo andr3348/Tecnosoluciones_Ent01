@@ -46,5 +46,9 @@ switch ($action) {
         $controller = new UsuarioController();
         $controller->cerrarSesion();
         break;
+    case 'crear_proyecto' :
+        $controller = new ProyectoController();
+        $controller->crearProyecto();
+        break;
 }
 ?>

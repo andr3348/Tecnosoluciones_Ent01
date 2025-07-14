@@ -1,14 +1,10 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html lang="es" class="h-full bg-gray-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/output.css">
-    <title>Tecnosoluciones | Login</title>
+    <title>Login</title>
 </head>
 <body class="h-full">
     <main class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -25,21 +21,17 @@
                 </p>
             </div>
 
-            <?php if (isset($_GET['error'])): ?>
+            <?php if (isset($_GET['error']) && $_GET['error'] == 'empty') { ?>
                 <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
-                    <p class="font-bold">Error de autenticación</p>
-                    <p>
-                        <?php
-                        if ($_GET['error'] == 'noExiste') {
-                            // Corregí el error ortográfico aquí
-                            echo 'El correo o la contraseña son incorrectos.';
-                        } elseif ($_GET['error'] == 'empty') {
-                            echo 'Todos los campos son obligatorios.';
-                        }
-                        ?>
-                    </p>
+                    <p class="font-bold">Error de registro</p>
+                    <p>Todos los campos son obligatorios.</p>
                 </div>
-            <?php endif; ?>
+            <?php } else if (isset($_GET['error']) && $_GET['error'] == 'noExiste') { ?>
+                <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
+                    <p class="font-bold">Error de registro</p>
+                    <p>Usuario no existe.</p>
+                </div>
+                <?php } ?>
 
             <form class="mt-8 space-y-6" action="?action=login" method="POST">
                 <div class="space-y-4 rounded-md shadow-sm">

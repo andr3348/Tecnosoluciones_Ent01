@@ -1,14 +1,10 @@
-<?php 
-
-?>
-
 <!DOCTYPE html>
 <html lang="es" class="h-full bg-gray-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/output.css">
-    <title>Tecnosoluciones | Sign In</title>
+    <title>Sign In</title>
 </head>
 <body class="h-full">
     <main class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -25,12 +21,12 @@
                 </p>
             </div>
 
-            <?php if (isset($_GET['error']) && $_GET['error'] == 'empty'): ?>
+            <?php if (isset($_GET['error']) && $_GET['error'] == 'empty') { ?>
                 <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md" role="alert">
                     <p class="font-bold">Error de registro</p>
                     <p>Todos los campos son obligatorios.</p>
                 </div>
-            <?php endif; ?>
+            <?php } ?>
 
             <form class="mt-8 space-y-6" action="?action=signin" method="POST">
                 <div class="space-y-4 rounded-md shadow-sm">

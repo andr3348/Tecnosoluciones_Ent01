@@ -40,9 +40,14 @@ VALUES ('Ana','ana@gmail.com','12354',1),
 
 INSERT INTO proyecto (titulo,descripcion)
 VALUES ('proyecto A','migración de base de datos'),
-	('proyecto B','creacion de api rest');
+	('proyecto B','creacion de api rest'),
+	('proyecto D', 'creación de api GraphQL'),
+	('proyecto E', 'creacion de base de datos en postgresql');
+
+INSERT INTO proyecto (titulo)
+VALUES ('proyecto C');
 
 INSERT INTO usuario_proyecto (id_usuario,id_proyecto)
-VALUES (1,1), (1,2), (2,1);
+VALUES (1,1), (1,2), (2,1), (2,3),(2,5);
 
 SELECT * FROM usuario;

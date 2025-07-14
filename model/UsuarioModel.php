@@ -29,6 +29,7 @@ class UsuarioModel {
         try {
             $sql = 'SELECT id_usuario,nombre,correo,passw,id_rol FROM usuario';
             $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             throw new Exception('Error al obtener usuarios: '.$e);
@@ -67,7 +68,7 @@ class UsuarioModel {
 
     function getByEmailPass($correo, $password) {
         try {
-            $sql = 'SELECT id_usuario,nombre,correo,passw,id_rol
+            $sql = 'SELECT id_usuario,nombre,correo,id_rol
                     FROM usuario WHERE correo = :correo AND passw = :passw';
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([
@@ -79,6 +80,18 @@ class UsuarioModel {
             return null;
         } catch (PDOException $e) {
             throw new Exception('Error al obtener el usuario por correo y contraseña: '.$e);
+        }
+    }
+
+    function getEmpleados() {
+        try {
+            $sql = 'SELECT id_usuario,nombre,correo,id_rol 
+                    FROM usuario WHERE id_rol = 2';
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            throw new Exception('Error al obtener usuarios que sean empleados: '.$e);
         }
     }
 }

@@ -8,6 +8,11 @@ class UsuarioController {
         return $model->getAll();
     }
 
+    public function cargarEmpleados() {
+        $model = new UsuarioModel();
+        return $model->getEmpleados();
+    }
+
     public function registrar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (empty($_POST['nombre']) ||

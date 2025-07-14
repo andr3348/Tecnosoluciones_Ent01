@@ -9,7 +9,8 @@ $proyectos = $log->cargarProyectosDeUsuario($_SESSION['id_usuario']); // id_proy
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/output.css">
+    <link rel="shortcut icon" href="/public/cheems.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Tecnosoluciones | DASHBOARD</title>
 </head>
 <body class="bg-gray-100">

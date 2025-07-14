@@ -5,12 +5,14 @@ $empleados = $log->cargarEmpleados();
 ?>
 
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-gray-50>
+<html lang="es" class="h-full bg-gray-50">
+
 <head>
     <meta charset=" UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/public/output.css">
-<title>Tecnosoluciones | SERVICIO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/public/cheems.png" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Tecnosoluciones | SERVICIO</title>
 </head>
 
 <body class="h-full">
@@ -37,17 +39,22 @@ $empleados = $log->cargarEmpleados();
             <form action="?action=crear_proyecto" method="POST" class="mt-8 space-y-6">
                 <div>
                     <label for="titulo" class="block text-sm font-medium text-gray-700 mb-1">Título:</label>
-                    <input type="text" name="titulo" id="titulo" placeholder="titulo" class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" required>
+                    <input type="text" name="titulo" id="titulo" placeholder="titulo"
+                        class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                        required>
                 </div>
 
                 <div>
                     <label for="descripcion" class="block text-sm font-medium text-gray-700 mb-1">Descripción:</label>
-                    <textarea name="descripcion" id="descripcion" placeholder="descripcion" rows="4" class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"></textarea>
+                    <textarea name="descripcion" id="descripcion" placeholder="descripcion" rows="4"
+                        class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"></textarea>
                 </div>
 
                 <div>
                     <label for="encargado" class="block text-sm font-medium text-gray-700 mb-1">Encargado:</label>
-                    <select name="encargado" id="encargado" class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm" required>
+                    <select name="encargado" id="encargado"
+                        class="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 focus:z-10 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
+                        required>
                         <option value="">Selecciona un encargado</option>
                         <?php foreach ($empleados as $empleado) { ?>
                             <option value="<?= $empleado['id_usuario'] ?>"><?= $empleado['nombre'] ?></option>
@@ -56,7 +63,9 @@ $empleados = $log->cargarEmpleados();
                 </div>
 
                 <div>
-                    <button type="submit" class="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">Crear Proyecto</button>
+                    <button type="submit"
+                        class="group relative flex w-full justify-center rounded-md border border-transparent bg-blue-600 py-2 px-4 text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">Crear
+                        Proyecto</button>
                 </div>
             </form>
             <div class="text-center">
